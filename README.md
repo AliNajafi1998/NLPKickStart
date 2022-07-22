@@ -1,11 +1,19 @@
 # PreProcessor
 
-**First Steps**
-- [ ] unicode normalizaton 
-- [ ] speical characters removal
-- [ ] url handler
-- [ ] hashtag handler
-- [ ] mention handler
-- [ ] language handler
-- [ ] emoji handler
-- [ ] html file parser 
+- [ ] Tokenizer
+	- [ ] standard tokenizer
+	- [ ]  NLTK toknizer
+	
+- [ ] Normalization	
+	- [ ] Unicode Normalizaton 
+	- [ ] Case Folding
+	- [ ] Lemmatization
+	- [ ] Emoji Handler
+	- [ ] Url Handler
+	- [ ] Translation
+
+- [ ] Filterings
+	- [ ] stopword removal 
+	- [ ] hashtag handler
+	- [ ] mention handler
+	- [ ] speical characters removal
