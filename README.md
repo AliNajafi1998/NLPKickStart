@@ -1,8 +1,8 @@
 # PreProcessor
 
 - [ ] Tokenizer
-	- [ ] standard tokenizer
-	- [ ]  NLTK toknizer
+    - [ ] NLTK Toknizers
+    - [ ] Spacy Toknizers
 	
 - [ ] Normalization	
 	- [ ] Unicode Normalizaton 
