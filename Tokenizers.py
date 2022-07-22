@@ -2,6 +2,7 @@
 from typing import Any, List
 from nltk.tokenize import (
     wordpunct_tokenize, sent_tokenize, word_tokenize, TweetTokenizer)
+import spacy
 
 
 class NLTKWordTokenizer:
@@ -25,3 +26,12 @@ class NLTKTweetTokenizer:
 
     def __call__(self, text: str) -> List[str]:
         return self.tt.tokenize(text)
+
+
+class SpacyTokenizer:
+    def __init__(self, pipline_model: str = "en_core_web_sm") -> None:
+        self.nlp = spacy.load(pipline_model, disable=[
+                              'ner', 'parser', 'lemmatizer'])
+
+    def __call__(self, text: str) -> List[str]:
+        return [token.text for token in self.nlp(text)]
