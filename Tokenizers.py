@@ -3,6 +3,7 @@ from typing import Any, List
 from nltk.tokenize import (
     wordpunct_tokenize, sent_tokenize, word_tokenize, TweetTokenizer)
 import spacy
+from ekphrasis.classes.tokenizer import SocialTokenizer
 
 
 class NLTKWordTokenizer:
@@ -35,3 +36,11 @@ class SpacyTokenizer:
 
     def __call__(self, text: str) -> List[str]:
         return [token.text for token in self.nlp(text)]
+
+
+class SocialTokenizer:
+    def __init__(self) -> None:
+        self.st = SocialTokenizer(lowercase=True)
+
+    def __call__(self, text: str) -> List[str]:
+        return self.st.tokenize(text)
