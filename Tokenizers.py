@@ -1,9 +1,9 @@
-# Tokenizers
-from typing import Any, List
-from nltk.tokenize import (
-    wordpunct_tokenize, sent_tokenize, word_tokenize, TweetTokenizer)
+from typing import List
+
 import spacy
 from ekphrasis.classes.tokenizer import SocialTokenizer
+from nltk.tokenize import (wordpunct_tokenize, sent_tokenize,
+                           word_tokenize, TweetTokenizer)
 
 
 class NLTKWordTokenizer:
