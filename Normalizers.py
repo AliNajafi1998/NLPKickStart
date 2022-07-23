@@ -1,5 +1,4 @@
 import unicodedata
-import emoji
 
 
 class UnicodeNormalizer:
@@ -19,11 +18,3 @@ class CaseFoldingNormalizer:
             return text.upper()
         else:
             raise Exception("Invalid mode!")
-
-
-class EmojiNormalizer:
-    def __init__(self) -> None:
-        pass
-
-    def __call__(self, text: str) -> str:
-        pass
