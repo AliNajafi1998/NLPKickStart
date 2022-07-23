@@ -9,12 +9,12 @@
 	- [x] Unicode Normalizaton 
 	- [x] Case Folding
 	- [ ] Lemmatization
-	- [x] Emoji Handler
-	- [ ] Url Handler
 	- [ ] Translation
 
 - [ ] Filterings
-	- [ ] stopword removal 
-	- [ ] hashtag handler
-	- [ ] mention handler
-	- [ ] speical characters removal
+	- [x] Emoji Handler
+	- [ ] Url Handler
+	- [ ] Stopword Removal 
+	- [ ] Hashtag Handler
+	- [ ] Mmention Handler
+	- [ ] Speical characters removal
