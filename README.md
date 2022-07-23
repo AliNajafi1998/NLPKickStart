@@ -6,10 +6,10 @@
     - [x] ekphrasis Tokenizers
 	
 - [ ] Normalization	
-	- [ ] Unicode Normalizaton 
-	- [ ] Case Folding
+	- [x] Unicode Normalizaton 
+	- [x] Case Folding
 	- [ ] Lemmatization
-	- [ ] Emoji Handler
+	- [x] Emoji Handler
 	- [ ] Url Handler
 	- [ ] Translation
 
