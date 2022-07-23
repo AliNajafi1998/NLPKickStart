@@ -13,7 +13,7 @@
 
 - [ ] Filterings
 	- [x] Emoji Handler
-	- [ ] Url Handler
+	- [x] Url Handler
 	- [ ] Stopword Removal 
 	- [ ] Hashtag Handler
 	- [ ] Mmention Handler
