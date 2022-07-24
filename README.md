@@ -15,6 +15,6 @@
 	- [x] Emoji Handler
 	- [x] Url Handler
 	- [ ] Stopword Removal 
-	- [ ] Hashtag Handler
+	- [x] Hashtag Handler
 	- [ ] Mmention Handler
 	- [ ] Speical characters removal
