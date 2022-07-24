@@ -11,7 +11,7 @@ class EmojiHandler:
 
 
 class URLHandler:
-    def __init__(self, ) -> None:
+    def __init__(self) -> None:
         self.url_extractor = URLExtract()
 
     def __call__(self, text: str, keep: bool = True) -> str:
@@ -37,11 +37,12 @@ class HashTagHandler:
         return " ".join([m.group(0) for m in matches])
 
     def __call__(self, text: str, keep: bool = True, camel_case_split: bool = True) -> str:
+        pattern = "(#([^\s]+))"
         if keep == True and camel_case_split == False:
-            return re.sub("(#([^\s]+))", "\\1 \\2", text)
+            return re.sub(pattern, "\\1 \\2", text)
         elif keep == True and camel_case_split == True:
-            return re.sub("(#([^\s]+))", lambda x: f"{x.group()} {self.camel_case_split(x.group()[1:])}", text)
+            return re.sub(pattern, lambda x: f"{x.group()} {self.camel_case_split(x.group()[1:])}", text)
         elif keep == False and camel_case_split == True:
-            return re.sub("(#([^\s]+))", lambda x: f"{self.camel_case_split(x.group()[1:])}", text)
+            return re.sub(pattern, lambda x: f"{self.camel_case_split(x.group()[1:])}", text)
         else:
-            return re.sub("(#([^\s]+))", "\\2", text)
+            return re.sub(pattern, "\\2", text)
