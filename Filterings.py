@@ -1,8 +1,10 @@
+from typing import List
 import emoji
 
 from urlextract import URLExtract
 import urllib
 import re
+import nltk
 
 
 class EmojiHandler:
@@ -46,3 +48,13 @@ class HashTagHandler:
             return re.sub(pattern, lambda x: f"{self.camel_case_split(x.group()[1:])}", text)
         else:
             return re.sub(pattern, "\\2", text)
+
+
+class NLTKStopwordHandler:
+    def __init__(self, additional_stopwords: List[str]) -> None:
+        nltk.download('stopwords')
+        self.stopwords = nltk.corpus.stopwords.words('english')
+        self.stopwords.extend(additional_stopwords)
+
+    def __call__(self, tokens: List[str]) -> str:
+        return [token for token in tokens if token not in self.stopwords]
