@@ -14,7 +14,8 @@
 - [ ] Filterings
 	- [x] Emoji Handler
 	- [x] Url Handler
-	- [ ] Stopword Removal 
+	- [x] Email Handler
+	- [x] Stopword Removal 
 	- [x] Hashtag Handler
-	- [ ] Mmention Handler
-	- [ ] Speical characters removal
+	- [x] Mention Handler
+	- [ ] Speical Characters Removal

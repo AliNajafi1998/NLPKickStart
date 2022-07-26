@@ -61,6 +61,18 @@ class HashTagHandler:
             return re.sub(pattern, "\\2", text)
 
 
+class MentionHandler:
+    def __call__(self, text: str, repl: str = None, keep: bool = True) -> str:
+        pattern = "(@([^\s]+))"
+        if repl:
+            return re.sub(pattern, repl, text)
+        else:
+            if keep == True:
+                return re.sub(pattern, "\\1 \\2", text)
+            else:
+                return re.sub(pattern, "\\2", text)
+
+
 class NLTKStopwordHandler:
     def __init__(self, additional_stopwords: List[str]) -> None:
         nltk.download('stopwords')
