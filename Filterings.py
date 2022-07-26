@@ -12,6 +12,17 @@ class EmojiHandler:
         return emoji.demojize(text)
 
 
+class EmailHandler:
+    def __init__(self) -> None:
+        self.pattern = r'[\w.+-]+@[\w-]+\.[\w.-]+'
+
+    def __call__(self, text: str, repl: str = ' ') -> str:
+        match = re.findall(self.pattern, text)
+        for m in match:
+            text = text.replace(m, repl).strip()
+        return text
+
+
 class URLHandler:
     def __init__(self) -> None:
         self.url_extractor = URLExtract()
