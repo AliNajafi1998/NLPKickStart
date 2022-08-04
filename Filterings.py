@@ -3,6 +3,7 @@ import emoji
 
 from nltk.stem import PorterStemmer
 from nltk.stem.snowball import SnowballStemmer
+from nltk.stem import WordNetLemmatizer
 
 from urlextract import URLExtract
 import urllib
@@ -100,3 +101,11 @@ class NLTKSNowBallStemmer:
 
     def __call__(self, tokens: List[str]) -> str:
         return [self.stemmer.stem(token) for token in tokens]
+
+
+class NLTKWordNetLemmatizer:
+    def __init__(self) -> None:
+        self.lemmatizer = WordNetLemmatizer()
+
+    def __call__(self, tokens: List[str]) -> str:
+        return [self.lemmatizer.lemmatize(token) for token in tokens]
