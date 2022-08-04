@@ -9,6 +9,7 @@
 	- [x] Unicode Normalizaton 
 	- [x] Case Folding
 	- [ ] Lemmatization
+	- [ ] Stemming
 	- [ ] Translation
 
 - [ ] Filterings
