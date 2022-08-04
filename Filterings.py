@@ -2,6 +2,8 @@ from typing import List
 import emoji
 
 from nltk.stem import PorterStemmer
+from nltk.stem.snowball import SnowballStemmer
+
 from urlextract import URLExtract
 import urllib
 import re
@@ -86,7 +88,15 @@ class NLTKStopwordHandler:
 
 class NLTLPorterStemmer:
     def __init__(self) -> None:
-        self.porter = PorterStemmer()
+        self.stemmer = PorterStemmer()
 
     def __call__(self, tokens: List[str]) -> str:
-        return [self.porter.stem(token) for token in tokens]
+        return [self.stemmer.stem(token) for token in tokens]
+
+
+class NLTKSNowBallStemmer:
+    def __init__(self, language="english") -> None:
+        self.stemmer = SnowballStemmer(language, ignore_stopwords=True)
+
+    def __call__(self, tokens: List[str]) -> str:
+        return [self.stemmer.stem(token) for token in tokens]
