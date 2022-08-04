@@ -1,4 +1,4 @@
-# PreProcessor
+# NLPKickStart
 
 - [x] Tokenizer
     - [x] NLTK Toknizers
@@ -10,7 +10,6 @@
 	- [x] Case Folding
 	- [x] Lemmatization
 	- [x] Stemming
-	- [ ] Translation
 
 - [ ] Filterings
 	- [x] Emoji Handler
@@ -20,3 +19,8 @@
 	- [x] Hashtag Handler
 	- [x] Mention Handler
 	- [ ] Speical Characters Removal
+
+- [ ] Pipline
+	- [ ] pipline composer
+	- [ ] type validator
+	- [ ] pipeline sequence validator
