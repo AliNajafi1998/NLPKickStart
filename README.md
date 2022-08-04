@@ -8,8 +8,8 @@
 - [ ] Normalization	
 	- [x] Unicode Normalizaton 
 	- [x] Case Folding
-	- [ ] Lemmatization
-	- [ ] Stemming
+	- [x] Lemmatization
+	- [x] Stemming
 	- [ ] Translation
 
 - [ ] Filterings
