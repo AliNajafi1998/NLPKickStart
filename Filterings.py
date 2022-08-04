@@ -1,6 +1,7 @@
 from typing import List
 import emoji
 
+from nltk.stem import PorterStemmer
 from urlextract import URLExtract
 import urllib
 import re
@@ -81,3 +82,11 @@ class NLTKStopwordHandler:
 
     def __call__(self, tokens: List[str]) -> str:
         return [token for token in tokens if token not in self.stopwords]
+
+
+class NLTLPorterStemmer:
+    def __init__(self) -> None:
+        self.porter = PorterStemmer()
+
+    def __call__(self, tokens: List[str]) -> str:
+        return [self.porter.stem(token) for token in tokens]
