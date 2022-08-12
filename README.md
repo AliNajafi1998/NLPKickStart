@@ -18,10 +18,10 @@
 	- [x] Stopword Removal 
 	- [x] Hashtag Handler
 	- [x] Mention Handler
-	- [ ] Speical Characters Removal
+	- [x] Replace Handler
 	- [x] Punctuation Handler
 
 - [ ] Pipline
-	- [ ] pipline composer
+	- [x] pipline composer
 	- [ ] type validator
 	- [ ] pipeline sequence validator
