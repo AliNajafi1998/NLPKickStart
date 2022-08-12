@@ -5,13 +5,13 @@
     - [x] Spacy Toknizers
     - [x] ekphrasis Tokenizers
 	
-- [ ] Normalization	
+- [x] Normalization	
 	- [x] Unicode Normalizaton 
 	- [x] Case Folding
 	- [x] Lemmatization
 	- [x] Stemming
 
-- [ ] Filterings
+- [x] Filterings
 	- [x] Emoji Handler
 	- [x] Url Handler
 	- [x] Email Handler
