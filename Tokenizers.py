@@ -7,6 +7,9 @@ from nltk.tokenize import (wordpunct_tokenize, sent_tokenize,
 
 
 class NLTKWordTokenizer:
+    def __init__(self) -> None:
+        pass
+
     def __call__(self, text: str) -> List[str]:
         return word_tokenize(text)
 
@@ -43,12 +46,12 @@ class SpacySentenceTokenizer:
         self.nlp = spacy.load(pipline_model)
 
     def __call__(self, text: str) -> List[str]:
-        return self.nlp(text).sents
+        return list(self.nlp(text).sents)
 
 
-class SocialTokenizer:
-    def __init__(self) -> None:
-        self.st = SocialTokenizer(lowercase=True)
+class SocialMediaTokenizer:
+    def __init__(self, lowercase: bool = True) -> None:
+        self.st = SocialTokenizer(lowercase=lowercase)
 
     def __call__(self, text: str) -> List[str]:
         return self.st.tokenize(text)
