@@ -19,6 +19,7 @@
 	- [x] Hashtag Handler
 	- [x] Mention Handler
 	- [ ] Speical Characters Removal
+	- [x] Punctuation Handler
 
 - [ ] Pipline
 	- [ ] pipline composer

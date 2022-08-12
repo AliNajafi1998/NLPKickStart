@@ -1,5 +1,5 @@
 import emoji
-
+import string
 from urlextract import URLExtract
 import urllib
 import re
@@ -69,3 +69,15 @@ class MentionHandler:
                 return re.sub(pattern, "\\1 \\2", text)
             else:
                 return re.sub(pattern, "\\2", text)
+
+
+class PunctuationHandler:
+    def __init__(self) -> None:
+        self.punct_set = set(string.punctuation + '''…'"`’”“''' + '️')
+
+    def __call__(self, text: str) -> str:
+        cleaned_text = ""
+        for ch in text:
+            if ch not in self.punct_set:
+                cleaned_text += ch
+        return cleaned_text
