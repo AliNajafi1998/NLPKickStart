@@ -38,6 +38,14 @@ class SpacyTokenizer:
         return [token.text for token in self.nlp(text)]
 
 
+class SpacySentenceTokenizer:
+    def __init__(self, pipline_model: str = "en_core_web_sm") -> None:
+        self.nlp = spacy.load(pipline_model)
+
+    def __call__(self, text: str) -> List[str]:
+        return self.nlp(text).sents
+
+
 class SocialTokenizer:
     def __init__(self) -> None:
         self.st = SocialTokenizer(lowercase=True)
