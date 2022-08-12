@@ -1,3 +1,4 @@
+import re
 from typing import List
 
 import unicodedata
@@ -18,10 +19,13 @@ class UnicodeNormalizer:
 
 
 class CaseFoldingNormalizer:
-    def __call__(self, text: str, mode: str = 'lower') -> str:
-        if mode == 'lower':
+    def __init__(self, mode: str = 'lower') -> None:
+        self.mode = mode
+
+    def __call__(self, text: str) -> str:
+        if self.mode == 'lower':
             return text.lower()
-        elif mode == 'upper':
+        elif self.mode == 'upper':
             return text.upper()
         else:
             raise Exception("Invalid mode!")
@@ -59,3 +63,13 @@ class NLTKWordNetLemmatizer:
 
     def __call__(self, tokens: List[str]) -> str:
         return [self.lemmatizer.lemmatize(token) for token in tokens]
+
+
+class RegexHandler:
+    def __init__(self, regex_pattern: str, repl: str = "", flags=0) -> None:
+        self.regex_pattern = regex_pattern
+        self.repl = repl
+        self.flags = flags
+
+    def __call__(self, text: str) -> str:
+        return re.sub(self.regex_pattern, self.repl, text, flags=self.flags)
