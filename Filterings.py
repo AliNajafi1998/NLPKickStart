@@ -104,3 +104,8 @@ class ReplaceHandler:
         for k, v in self.filters.items():
             output = re.sub(k, v, output)
         return output
+
+class HTMLHandler:
+    def __call__(self, text: str) -> str:
+        pattern = re.compile('<.*?>')
+        return re.sub(pattern, " ", text)
