@@ -37,7 +37,7 @@ class NLTKStopwordHandler:
         self.stopwords = nltk.corpus.stopwords.words('english')
         self.stopwords.extend(additional_stopwords)
 
-    def __call__(self, tokens: List[str]) -> str:
+    def __call__(self, tokens: List[str]) -> list[str]:
         return [token for token in tokens if token not in self.stopwords]
 
 
@@ -45,7 +45,7 @@ class NLTLPorterStemmer:
     def __init__(self) -> None:
         self.stemmer = PorterStemmer()
 
-    def __call__(self, tokens: List[str]) -> str:
+    def __call__(self, tokens: List[str]) -> list[str]:
         return [self.stemmer.stem(token) for token in tokens]
 
 
@@ -53,7 +53,7 @@ class NLTKSNowBallStemmer:
     def __init__(self, language="english") -> None:
         self.stemmer = SnowballStemmer(language, ignore_stopwords=True)
 
-    def __call__(self, tokens: List[str]) -> str:
+    def __call__(self, tokens: List[str]) -> list[str]:
         return [self.stemmer.stem(token) for token in tokens]
 
 
@@ -61,15 +61,5 @@ class NLTKWordNetLemmatizer:
     def __init__(self) -> None:
         self.lemmatizer = WordNetLemmatizer()
 
-    def __call__(self, tokens: List[str]) -> str:
+    def __call__(self, tokens: List[str]) -> list[str]:
         return [self.lemmatizer.lemmatize(token) for token in tokens]
-
-
-class RegexHandler:
-    def __init__(self, regex_pattern: str, repl: str = "", flags=0) -> None:
-        self.regex_pattern = regex_pattern
-        self.repl = repl
-        self.flags = flags
-
-    def __call__(self, text: str) -> str:
-        return re.sub(self.regex_pattern, self.repl, text, flags=self.flags)

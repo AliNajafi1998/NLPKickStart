@@ -55,7 +55,7 @@ class HashTagHandler:
         return " ".join([m.group(0) for m in matches])
 
     def __call__(self, text: str) -> str:
-        pattern = "(#([^\s]+))"
+        pattern = r"(#([^\s]+))"
         if self.keep == True and self.do_camel_case_split == False:
             return re.sub(pattern, "\\1 \\2", text)
         elif self.keep == True and self.do_camel_case_split == True:
@@ -72,7 +72,7 @@ class MentionHandler:
         self.keep = keep
 
     def __call__(self, text: str) -> str:
-        pattern = "(@([^\s]+))"
+        pattern = r"(@([^\s]+))"
         if self.repl:
             return re.sub(pattern, self.repl, text)
         else:
@@ -83,7 +83,7 @@ class MentionHandler:
 
 
 class PunctuationHandler:
-    def __init__(self, keep_set: set = set()) -> None:
+    def __init__(self, keep_set: set = {}) -> None:
         self.punct_set = set(string.punctuation + '''…'"`’”“''' + '️')
         self.punct_set -= keep_set
 
@@ -93,6 +93,16 @@ class PunctuationHandler:
             if ch not in self.punct_set:
                 cleaned_text += ch
         return cleaned_text
+
+
+class RegexHandler:
+    def __init__(self, regex_pattern: str, repl: str = "", flags=0) -> None:
+        self.regex_pattern = regex_pattern
+        self.repl = repl
+        self.flags = flags
+
+    def __call__(self, text: str) -> str:
+        return re.sub(self.regex_pattern, self.repl, text, flags=self.flags)
 
 
 class ReplaceHandler:
@@ -105,7 +115,8 @@ class ReplaceHandler:
             output = re.sub(k, v, output)
         return output
 
+
 class HTMLHandler:
     def __call__(self, text: str) -> str:
-        pattern = re.compile('<.*?>')
+        pattern = re.compile(r'<.*?>')
         return re.sub(pattern, " ", text)

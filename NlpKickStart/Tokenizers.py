@@ -35,7 +35,7 @@ class NLTKTweetTokenizer:
 class SpacyTokenizer:
     def __init__(self, pipline_model: str = "en_core_web_sm") -> None:
         self.nlp = spacy.load(pipline_model, disable=[
-                              'ner', 'parser', 'lemmatizer'])
+            'ner', 'parser', 'lemmatizer'])
 
     def __call__(self, text: str) -> List[str]:
         return [token.text for token in self.nlp(text)]
@@ -45,7 +45,7 @@ class SpacySentenceTokenizer:
     def __init__(self, pipline_model: str = "en_core_web_sm") -> None:
         self.nlp = spacy.load(pipline_model)
 
-    def __call__(self, text: str) -> List[str]:
+    def __call__(self, text: str) -> list[str]:
         return list(self.nlp(text).sents)
 
 
