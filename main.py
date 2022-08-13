@@ -2,7 +2,7 @@ import pprint
 
 from NlpKickStart import (Pipeline, UnicodeNormalizer, EmojiHandler, RegexHandler, HashTagHandler, URLHandler,
                           HTMLHandler, MentionHandler, ReplaceHandler, PunctuationHandler, CaseFoldingNormalizer,
-                          NLTKSentenceTokenizer, EmailHandler)
+                          NLTKSentenceTokenizer, EmailHandler, ExpandContractionHandler)
 
 sample_texts = [
     """They do this while filmed what do they do when they are not... we all know they murder! Defund the police 
@@ -15,13 +15,14 @@ sample_texts = [
     there is a 1.5kmx2cm partial steam plasma. <br>	I became aware that ultrasound scans of cancers, 
     cause the emission of X rays.  Of which there is no chemical source!  You& <br>2	H₂O+P+TU→E²+L...Z-ray		
     here E²=2.5x10³⁰ W"	HxHnIZfuDGs""",
-    'test test@gmail.com']
+    'test test@gmail.com', "you're a big guy"]
 
 pipeline = Pipeline([
     UnicodeNormalizer(),
     EmailHandler(),
     EmojiHandler(),
     RegexHandler("&#39;", "'"),
+    ExpandContractionHandler(),
     HashTagHandler(keep=False),
     HTMLHandler(),
     URLHandler(keep=False),
@@ -32,7 +33,7 @@ pipeline = Pipeline([
     CaseFoldingNormalizer(),
     RegexHandler(r"\.+", "."),
     RegexHandler("  +", " "),
-    NLTKSentenceTokenizer()
+    # NLTKSentenceTokenizer()
 
 ])
 
