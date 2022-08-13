@@ -33,7 +33,7 @@ pipeline = Pipeline([
     CaseFoldingNormalizer(),
     RegexHandler(r"\.+", "."),
     RegexHandler("  +", " "),
-    # NLTKSentenceTokenizer()
+    NLTKSentenceTokenizer()
 
 ])
 
