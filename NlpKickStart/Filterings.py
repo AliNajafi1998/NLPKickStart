@@ -1,5 +1,6 @@
 from typing import Dict
 import emoji
+from .emoticons import EMOTICONS
 import string
 from urlextract import URLExtract
 import urllib
@@ -9,6 +10,21 @@ import re
 class EmojiHandler:
     def __call__(self, text: str) -> str:
         return emoji.demojize(text)
+
+
+class EmoticonHandler:
+    def __init__(self):
+        from NlpKickStart import UnicodeNormalizer
+        self.unicode_normalizer = UnicodeNormalizer()
+
+    def convert_emojis_to_word(self, text: str):
+        output = text
+        for emot in EMOTICONS:
+            output = output.replace(emot, EMOTICONS[emot])
+        return output
+
+    def __call__(self, text: str) -> str:
+        return self.convert_emojis_to_word(text)
 
 
 class EmailHandler:
